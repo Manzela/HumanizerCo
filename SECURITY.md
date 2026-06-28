@@ -37,4 +37,4 @@ To help us evaluate and address your report quickly, please include:
 ## Core Security Guarantees
 
 * **Data Isolation**: All text transformation processing occurs entirely within the user's browser context.
-* **No Telemetry PII Leakage**: Telemetry event dispatchers automatically strip raw text inputs, email addresses, and personal identifiable information prior to emission.
+* **No Telemetry PII Leakage**: Telemetry event dispatchers automatically strip raw text inputs, email addresses, and personally identifiable information prior to emission.

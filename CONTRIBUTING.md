@@ -11,7 +11,7 @@ HumanizerCo is implemented as a standalone zero-dependency web application conta
 Key design constraints:
 * **Zero External Dependencies**: Production builds must run entirely within standard browser APIs without external NPM packages or remote CDN assets.
 * **Client-Side Execution**: No user text data may be transmitted to external servers.
-* **Browser Compatibility**: Code must run seamlessly across all modern evergreen browsers (Chrome, Safari, Firefox, Edge).
+* **Browser Compatibility**: Code must run consistently across all modern evergreen browsers (Chrome, Safari, Firefox, Edge).
 
 ---
 
@@ -31,7 +31,7 @@ cd HumanizerCo
 Because HumanizerCo is a single-page client-side application, you can serve it locally using any standard static HTTP server:
 
 ```bash
-npx python3 -m http.server 8000
+python3 -m http.server 8000
 ```
 
 Open `http://localhost:8000` in your web browser to test your changes.
@@ -39,7 +39,7 @@ Open `http://localhost:8000` in your web browser to test your changes.
 ### 3. Making Changes
 
 * Create a topic branch from `main`: `git checkout -b feature/my-new-feature`
-* Ensure code modifications strictly maintain accessibility standards (WCAG 2.1 AA) and dynamic ARIA attributes.
+* Ensure code modifications strictly maintain accessibility standards (WCAG 2.2 AA) and dynamic ARIA attributes.
 * Verify that lexical substitutions maintain high grammatical accuracy and phonetic alignment.
 
 ### 4. Submitting Pull Requests

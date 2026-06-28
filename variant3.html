@@ -18,12 +18,12 @@
          configurable access gating models.
        - Authentication & State: Client-side session management with fallback persistence options.
        - Privacy & Analytics: Telemetry event pipeline with strict PII filtering and payload sanitization.
-       - Accessibility & UX: WCAG 2.1 AA compliant keyboard navigation, dynamic screen reader regions,
+       - Accessibility & UX: WCAG 2.2 AA compliant keyboard navigation, dynamic screen reader regions,
          and accessible focus management.
        ============================================================ -->
   <style>
     :root {
-      /* Specification — refined Tier-1 palette. Single action accent (indigo) + green="safe/free" semantic. */
+      /* Palette — single action accent (indigo) + green = "safe/free" semantic. */
       --accent: #4F46E5;          /* indigo-600 — CTAs only (white text 6.3:1, AA) */
       --accent-press: #4338CA;
       --accent-tint: #EEF2FF;
@@ -36,7 +36,7 @@
       --surface: #FFFFFF;
       --surface-2: #F8FAFC;
       --ok: #16A34A; --ok-ink: #15803D;            /* --ok = lighter graphic green (Specification); meter uses --ok-ink for track contrast */
-      --ok-50: #F0FDF4; --ok-100: #DCFCE7; --ok-200: #BBF7D0; --ok-800: #166534;  /* tokenized green surfaces (P2-7) */
+      --ok-50: #F0FDF4; --ok-100: #DCFCE7; --ok-200: #BBF7D0; --ok-800: #166534;  /* tokenized green surfaces */
       --warn: #D97706; --warn-ink: #B45309;
       --bad: #DC2626; --bad-ink: #B91C1C;
       --radius: 16px;
@@ -91,7 +91,7 @@
     .btn-mini { min-height: 32px; padding: 0 12px; font-size: 0.8rem; font-weight: 500; color: var(--ink-2);
                 border: 1px solid var(--line); border-radius: 8px; background: var(--surface); gap: 8px; }
     .btn-mini:hover { background: var(--surface-2); border-color: #D3D8DF; }
-    .btn-mini[disabled] { opacity: .55; }                  /* unified disabled dim (P3-4) */
+    .btn-mini[disabled] { opacity: .55; }                  /* unified disabled dim */
     .btn-mini .ico { opacity: .85; }
     .btn-mini.copied { color: var(--ok-ink); border-color: var(--ok-200); background: var(--ok-50); }
     label.sr, .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0; margin: -1px; }
@@ -104,7 +104,7 @@
            background: var(--surface-2); overflow: auto; min-height: 196px; line-height: 1.6; }
     .out:empty::before { content: "Your humanized text will appear here."; color: #6B7280; }
     .counter { color: var(--muted); font-size: 0.8rem; margin: 12px 0 0; font-variant-numeric: tabular-nums; }
-    .counter.over { color: var(--warn-ink); font-weight: 500; }   /* amber=caution for over-cap (P3-2) */
+    .counter.over { color: var(--warn-ink); font-weight: 500; }   /* amber=caution for over-cap */
 
     /* controls bar */
     .controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 24px 0 0; justify-content: flex-start; }
@@ -123,7 +123,7 @@
     .modes .mode:has(input:focus-visible) { outline: 3px solid var(--accent-tint); outline-offset: 1px; }
     .mode .ico { opacity: .8; }
     .mode-tag { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
-                color: var(--ok-800); background: var(--ok-100); border-radius: 6px; padding: 2px 6px; }   /* tokenized (P2-7) */
+                color: var(--ok-800); background: var(--ok-100); border-radius: 6px; padding: 2px 6px; }   /* tokenized */
 
     /* buttons */
     button { font: inherit; cursor: pointer; border-radius: var(--radius-sm); padding: 0 18px; min-height: 46px;
@@ -135,10 +135,10 @@
     button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600;
                      box-shadow: 0 1px 2px rgba(79,70,229,.25), 0 8px 20px -8px rgba(79,70,229,.55); }
     button.primary:hover { background: var(--accent-press); border-color: var(--accent-press); }
-    button[disabled] { opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }   /* unified disabled cursor (P3-4) */
-    button.is-loading { opacity: 1; }                      /* loading != disabled — keep the button full-strength while working (P3-1) */
+    button[disabled] { opacity: .55; cursor: not-allowed; box-shadow: none; transform: none; }   /* unified disabled cursor */
+    button.is-loading { opacity: 1; }                      /* loading != disabled — keep the button full-strength while working */
     button:focus-visible { outline: 3px solid var(--accent-tint); outline-offset: 2px; }
-    .alert { color: var(--bad-ink); font-size: 0.95rem; margin: 16px 0 0; min-height: 1.2em; font-weight: 500; }   /* on-grid margin (P3-5), 0.95 small-body (P2-3) */
+    .alert { color: var(--bad-ink); font-size: 0.95rem; margin: 16px 0 0; min-height: 1.2em; font-weight: 500; }   /* on-grid margin, 0.95 small-body */
 
     /* score box — goal gradient /05) */
     .scorebox { margin: 24px 0 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
@@ -149,7 +149,7 @@
     .meter { position: relative; height: 10px; border-radius: 999px; background: #EDF0F3; margin: 24px 0 8px; }
     .meter-fill { height: 100%; width: 0; border-radius: 999px; background: #CBD5E1;  /* neutral default; class sets semantic color (never accent) */
                   transition: width .7s cubic-bezier(.22,.61,.36,1), background-color .7s ease; }
-    .meter-fill.is-bad { background: var(--bad); }        /* token-driven meter color (P2-7) — all >=3:1 on the #EDF0F3 track */
+    .meter-fill.is-bad { background: var(--bad); }        /* token-driven meter color — all >=3:1 on the #EDF0F3 track */
     .meter-fill.is-warn { background: var(--warn-ink); }
     .meter-fill.is-ok { background: var(--ok-ink); }
     .meter-human { position: absolute; top: -4px; bottom: -4px; width: 2px; border-radius: 2px; background: var(--ok-ink); }
@@ -161,7 +161,7 @@
     .gap-text { margin: 0 0 12px; font-weight: 600; color: var(--ink); font-size: 0.95rem; max-width: 60ch; }
     @media (prefers-reduced-motion: reduce) { .meter-fill, button, textarea, .modes .mode { transition: none; } }
 
-    /* gate modal — dismissible; form + focus-trap land in P4 */
+    /* gate modal — dismissible; form + focus-trap */
     .overlay { position: fixed; inset: 0; background: rgba(11,18,32,.5); display: flex; align-items: center;
                justify-content: center; padding: 20px; z-index: 50; }
     .overlay[hidden] { display: none; }
@@ -177,7 +177,7 @@
     .modal-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; min-height: 40px; border: 0;
                    background: transparent; color: var(--muted); padding: 0; border-radius: 9px; }
     .modal-close:hover { background: var(--surface-2); color: var(--ink); }
-    /* signup form (P4) */
+    /* signup form */
     #signupForm { display: grid; gap: 8px; margin: 0; }
     #emailInput { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: var(--radius-sm);
                   padding: 0 14px; font: inherit; color: var(--ink); background: var(--surface);
@@ -218,7 +218,7 @@
     .foot-links a { color: var(--muted); font-size: 0.8rem; font-weight: 400; text-decoration: underline; text-underline-offset: 2px;
                     display: inline-flex; align-items: center; min-height: 24px; padding: 2px 0; }  /* / WCAG 2.5.8 ≥24px target */
     .foot-links a:hover { color: var(--ink-2); }
-    .foot-links a:focus-visible { outline: 3px solid var(--accent-tint); outline-offset: 2px; border-radius: 4px; }  /* on-system focus ring (P3-7) */
+    .foot-links a:focus-visible { outline: 3px solid var(--accent-tint); outline-offset: 2px; border-radius: 4px; }  /* on-system focus ring */
     .legal { margin-top: 16px; max-width: 720px; }
     .legal p { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin: 0 0 8px; }
     .legal strong { color: var(--ink-2); font-weight: 600; }
@@ -235,7 +235,7 @@
       #sample { flex: 0 1 auto; }                       /* secondary sizes to its label … */
       #humanize { flex: 1 1 auto; white-space: nowrap; } /* … primary takes the surplus, never wraps (FINDING D-1) */
       #sample, #humanize { padding: 0 14px; }
-      .link-btn { min-height: 44px; }                   /* mobile tap target (P3-8) */
+      .link-btn { min-height: 44px; }                   /* mobile tap target */
       .trust { grid-template-columns: 1fr; gap: 12px; }
       .steps { grid-template-columns: 1fr; gap: 16px; }
       .btn-mini { min-height: 44px; }                 /* touch target on mobile */
@@ -247,7 +247,7 @@
       h1 { font-size: 1.65rem; line-height: 1.1; margin: 0 0 8px; }
       .sub { font-size: 0.98rem; line-height: 1.45; margin: 0 0 12px; }
       header.site { padding: 4px 0 16px; }
-      .trust-pill { display: none; }                    /* hide only on small phones; tablets/large phones keep the credibility cue (P1-4) */
+      .trust-pill { display: none; }                    /* hide only on small phones; tablets/large phones keep the credibility cue */
       .panel-head { margin: 0 0 8px; }
       .tool { gap: 12px; }
       textarea { min-height: 86px; }
@@ -319,7 +319,7 @@
               <svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="2"/></svg>
               <span id="copyLabel">Copy</span>
             </button>
-            <span id="copyStatus" class="sr" role="status" aria-live="polite"></span>   <!-- R-A11Y-01 / WCAG 4.1.3: announce copy confirmation -->
+            <span id="copyStatus" class="sr" role="status" aria-live="polite"></span>   <!-- WCAG 4.1.3: announce copy confirmation -->
           </div>
           <div id="output" class="out" aria-live="polite"></div>
         </div>
@@ -346,7 +346,7 @@
         </div>
       </section>
 
-      <!-- trust strip /04) — signal-reduction + privacy + verify-yourself; no testimonials/logos  -->
+      <!-- trust strip /04) — signal-reduction + privacy + verify-yourself; no testimonials/logos -->
       <section class="trust" aria-label="Why HumanizerCo">
         <div class="trust-item">
           <svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -373,7 +373,7 @@
       </section>
     </main>
 
-    <!-- gate / signup modal ; email-primary form + dialog focus-trap land in P4 -->
+    <!-- gate / signup modal: email-primary form + dialog focus-trap -->
     <div id="gateOverlay" class="overlay" hidden>
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
         <h2 id="gateTitle">Create your free account</h2>
@@ -655,7 +655,7 @@
     var HARD_CAP = 20000;                            // absolute input ceiling (perf guard)
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;     // validation (Step 5 data model)
     var STORE_KEY = "hco_signedin";
-    var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");  // R-A11Y-04
+    var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 
     /* AppState (Step 5 data model) */
     var state = { signedIn: false, mode: "basic", hasBasicResult: false,
@@ -676,9 +676,9 @@
     /* score meter /04) */
     function levelFor(s) { return s >= 60 ? "is-bad" : (s > HUMAN ? "is-warn" : "is-ok"); }  /* token-driven meter color, all >=3:1 on track */
     function renderScore(score) {
-      scorebox.hidden = false;                      // a real estimate exists -> reveal the card (P1-2)
-      scoreVal.textContent = score + "% AI";        // aria-live region announces (R-A11Y-03)
-      // self-contained announcement carrying the human-range frame, for AT (P2-4 / R-A11Y-03)
+      scorebox.hidden = false;                      // a real estimate exists -> reveal the card
+      scoreVal.textContent = score + "% AI";        // aria-live region announces
+      // self-contained announcement carrying the human-range frame, for AT
       scoreVal.setAttribute("aria-label", score + "% likely AI — " +
         (score > HUMAN ? (score - HUMAN) + "% above the human range (25% or below)" : "within the human range (25% or below)"));
       meterFill.style.width = score + "%";          // CSS transition = visible drop 
@@ -700,14 +700,14 @@
       if (state.signedIn) { counter.textContent = base + " · no word limit"; }
       else if (over) { counter.textContent = base + " · " + (wc - FREE_CAP) + " over the " + FREE_CAP + "-word free limit"; }
       else { counter.textContent = base + " · " + (FREE_CAP - wc) + " of " + FREE_CAP + " free words left"; }
-      counter.classList.toggle("over", over);   // amber caution when over the free cap (P3-2)
+      counter.classList.toggle("over", over);   // amber caution when over the free cap
     }
 
     /* before-score as the user types/pastes */
     function showBeforeScore() {
       var wc = wordCount(input.value);
       if (wc > 0) { renderScore(estimateAiScore(input.value)); }
-      else {                                          // no input -> hide the dormant card entirely (P1-2)
+      else {                                          // no input -> hide the dormant card entirely
         scorebox.hidden = true;
         scoreVal.textContent = "—"; scoreVal.setAttribute("aria-label", "No estimate yet");
         meterFill.style.width = "0%";
@@ -759,7 +759,7 @@
         navigator.clipboard.writeText(text)["catch"](function () { fallbackCopy(text); });
       } else { fallbackCopy(text); }
       copyLabel.textContent = "Copied"; btnCopy.classList.add("copied");
-      copyStatus.textContent = "Copied to clipboard";   // R-A11Y-01 / WCAG 4.1.3 status message
+      copyStatus.textContent = "Copied to clipboard";   // WCAG 4.1.3 status message
       window.setTimeout(function () { copyLabel.textContent = "Copy"; btnCopy.classList.remove("copied"); copyStatus.textContent = ""; }, 1600);
     });
 
@@ -768,7 +768,7 @@
       input.value = ""; output.textContent = "";
       scorebox.hidden = true;                              // remove the card on reset
       scoreVal.textContent = "—"; scoreVal.setAttribute("aria-label", "No estimate yet");
-      meterFill.style.width = "0%"; meterFill.className = "meter-fill";   // reset token-driven color (P2-7)
+      meterFill.style.width = "0%"; meterFill.className = "meter-fill";   // reset token-driven color
       gap.hidden = true; scoreCaveat.hidden = true; setAlert("");
       btnHumanize.classList.add("primary");               // Humanize is the sole accent again
       state.hasBasicResult = false; state.lastInput = ""; state.lastOutput = "";
@@ -800,12 +800,12 @@
           strongCtaText.textContent = "Run Strong mode"; strongCtaLock.hidden = true;
         } else {
           gapText.textContent = "Still " + n + "% above human — unlock Strong (free) to close the gap.";
-          strongCtaText.textContent = "Run Strong mode — free sign‑up"; strongCtaLock.hidden = false;  // U+2011 no-break hyphen (P3-3)
+          strongCtaText.textContent = "Run Strong mode — free sign‑up"; strongCtaLock.hidden = false;  // U+2011 no-break hyphen
         }
       } else { gap.hidden = true; btnHumanize.classList.add("primary"); }   // gap gone -> Humanize is the sole action again
     }
 
-    /* ---- gate modal: dialog pattern w/ focus trap + restore , R-A11Y-07) ---- */
+    /* ---- gate modal: dialog pattern w/ focus trap + restore ---- */
     function focusables() {
       return Array.prototype.slice.call(
         gateOverlay.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])')
@@ -821,9 +821,9 @@
       emailError.hidden = true; emailInput.removeAttribute("aria-invalid"); emailInput.value = "";
       gateOverlay.hidden = false;
       logEvent("gate_viewed", { reason: reason });         // / BL-34
-      if (emailInput.focus) emailInput.focus();            // R-A11Y-07: focus the primary control
+      if (emailInput.focus) emailInput.focus();            // focus the primary control
     }
-    function hideGate() {                                   // R-A11Y-07 restore focus to opener
+    function hideGate() {                                   // restore focus to opener
       gateOverlay.hidden = true;
       // Restore to the opener if it's still in the DOM and visible; otherwise to a stable, visible
       // control so focus is never lost to <body>. (The signup path re-points focus after its re-run
@@ -843,7 +843,7 @@
     }
     gateClose.addEventListener("click", closeGate);
     gateOverlay.addEventListener("click", function (e) { if (e.target === gateOverlay) closeGate(); });  // backdrop
-    document.addEventListener("keydown", function (e) {     // ESC + Tab focus-trap (R-A11Y-07)
+    document.addEventListener("keydown", function (e) {     // ESC + Tab focus-trap
       if (gateOverlay.hidden) return;
       if (e.key === "Escape") { closeGate(); return; }
       if (e.key === "Tab") {
@@ -892,7 +892,7 @@
         // every real render (incl. the silent post-signup re-run) — only humanize_clicked is gated by `silent`.
         logEvent("result_shown", { mode: mode, wordCount: wordCount(result.output) });
         logEvent("score_revealed", { scoreBefore: result.scoreBefore, scoreAfter: result.scoreAfter });
-        scorebox.scrollIntoView({ behavior: (REDUCED && REDUCED.matches) ? "auto" : "smooth", block: "center" });  // / R-A11Y-04
+        scorebox.scrollIntoView({ behavior: (REDUCED && REDUCED.matches) ? "auto" : "smooth", block: "center" });
         if (afterRender) afterRender(result);
       }, 350);
     }

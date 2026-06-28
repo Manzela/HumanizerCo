@@ -1,4 +1,24 @@
+# OS
 .DS_Store
+
+# Local tooling / caches
 .claude/
 .firecrawl/
 .playwright-mcp/
+.agents/
+.firebase/
+skills-lock.json
+
+# Internal working notes (not part of the published project)
+audit/
+
+# Exported conversation logs (may contain local paths / personal data)
+*.txt
+
+# Working screenshots at repo root (kept local, not published)
+/audit-*.png
+/audit2-*.png
+
+# Submission deliverables (delivered privately to the reviewer; not part of the public product)
+/Deliverable-1-Reasoning-Writeup.md
+/docs/transcripts/

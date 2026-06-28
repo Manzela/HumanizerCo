@@ -4,6 +4,7 @@
 
 HumanizerCo is a lightweight, high-performance web application designed to rephrase and humanize machine-generated text. Operating entirely within the browser sandbox, the engine applies structural, syntactic, and lexical transformations to reduce predictability metrics commonly flagged by statistical AI detectors.
 
+![HumanizerCo — paste AI text, humanize it in one click, and watch the AI-detection estimate fall](docs/screenshots/desktop-result.png)
 
 ---
 
@@ -61,38 +62,38 @@ HumanizerCo provides two operational modes tailored to user needs:
 | Mode | Target Use Case | Transformation Profile |
 | :--- | :--- | :--- |
 | **Basic** | Light editing & academic clarity | Subtle vocabulary shifts, structural cleanup, low risk of semantic drift. |
-| **Strong** | Maximum bypass optimization | Comprehensive sentence restructuring, advanced synonym mapping, high burstiness. |
+| **Strong** | Heavily templated, uniform text | Full sentence restructuring, wider synonym mapping, higher burstiness. |
 
 ### Access Control & Usage Limits
 
 * **Free Tier Allowance**: Up to 250 words per execution in Basic mode without authentication.
-* **Authentication Gating**: Accessing Strong mode or processing inputs over 250 words requires guest authentication.
+* **Authentication Gating**: Accessing Strong mode or processing inputs over 250 words requires a free account.
 * **Hard Limits**: System enforces a hard input cap of 20,000 words to ensure optimal browser performance during real-time processing.
 
 ---
 
 ## Performance & Accessibility
 
-* **Accessibility (WCAG 2.1 AA)**: Built with native dynamic regions (`aria-live`), full keyboard focus trapping for modal dialogs, and minimum interactive target sizes (>=44px).
-* **Motion & UX Constraints**: Respects operating system preferences (`prefers-reduced-motion`) to bypass complex score animations when requested.
+* **Accessibility (WCAG 2.2 AA)**: Built with native dynamic regions (`aria-live`), full keyboard focus trapping for modal dialogs, and minimum interactive target sizes (>=44px).
+* **Motion & UX Constraints**: Respects operating system preferences (`prefers-reduced-motion`) to skip score animations when requested.
 * **Analytics & Privacy**: Telemetry events strictly strip PII and raw text inputs prior to dispatch, ensuring compliance with data handling standards.
 
 ---
 
 ## Local Development & Deployment
 
-The application is engineered as a single, self-contained HTML document.
+The application is a single, self-contained HTML document.
 
 ### Running Locally
 
-To run the application locally without a web server:
+To run the application locally without a web server, open the file directly:
 ```bash
 open index.html
 ```
 
-Alternatively, serve the directory using standard HTTP tools:
+Or serve the directory over HTTP (recommended, so clipboard and history APIs behave as in production):
 ```bash
-npx python3 -m http.server 8000
+python3 -m http.server 8000
 ```
 
 ### Production Deployment

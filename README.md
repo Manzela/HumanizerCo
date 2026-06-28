@@ -95,3 +95,15 @@ npx python3 -m http.server 8000
 ### Production Deployment
 
 Deploying to static host environments (e.g., GitHub Pages, Cloudflare Pages, NGINX) requires hosting only `index.html` at the web root. No compilation step is required.
+
+---
+
+## Open Source & Governance
+
+HumanizerCo is maintained as an open-source project. We encourage community involvement, bug reports, and pull requests.
+
+* **[Contributing Guidelines](CONTRIBUTING.md)**: Details on development workflow, code formatting, and pull request procedures.
+* **[Security Policy](SECURITY.md)**: Information on vulnerability reporting and privacy guarantees.
+* **[Code of Conduct](CODE_OF_CONDUCT.md)**: Standards for fostering an inclusive, welcoming community.
+* **[License](LICENSE)**: Licensed under the MIT License.
+

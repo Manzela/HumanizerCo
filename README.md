@@ -147,7 +147,7 @@ Three conversion-focused creatives sized to drive traffic to the landing page, s
 
 ## How I worked
 
-I work AI-assisted, and I built each assignment around a simple idea: decide everything before the model starts producing. For every task I first wrote and locked the full scope — the requirements, what counts as done, and the checks that prove it — and only then let the session run against that plan. Long AI sessions drift when you let them improvise; locking the scope upfront keeps the execution following the plan instead of the model's best guess halfway through.
+I work AI-assisted, and I built each assignment around a simple idea: decide everything before the model starts producing. For every task I first wrote and locked the full scope — the requirements, what counts as done, and the checks that prove it, and only then executed against that plan, using Claude Code as the build engine while I enforced the spec at each phase gate. Long AI sessions drift when you let them improvise; locking the scope upfront keeps the execution following the plan instead of the model's best guess halfway through.
 
 That is why the session transcripts read the way they do. The short "Proceed" replies you'll see from me are sign-offs on a phase that already passed its checks, not me skimming and waving things through. The thinking happens earlier, when the scope is written and pressure-tested; the build phase is mostly enforcement.
 

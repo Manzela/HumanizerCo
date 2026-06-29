@@ -1,10 +1,12 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "Assignment 1",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/Claude Code/**",
+      "**/*.md"
     ]
   }
 }

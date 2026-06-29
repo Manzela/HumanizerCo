@@ -78,28 +78,43 @@ HumanizerCo provides two operational modes tailored to user needs:
 
 ---
 
+## Repository Structure
+
+```text
+Assignment 1/   Landing page — the self-contained application (index.html) + reasoning write-up
+Assignment 2/   A/B test variants (variant1–3.html) + reasoning write-up
+Assignment 3/   Ad creatives (ad_creatives/*.png) + reasoning write-up
+docs/           Reference screenshots
+```
+
+The runnable application is the single, self-contained document at `Assignment 1/index.html`. Hosting configuration (`firebase.json`, `.firebaserc`) and governance files (`CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `LICENSE`) live at the repository root.
+
+---
+
 ## Local Development & Deployment
 
-The application is a single, self-contained HTML document.
+The application is a single, self-contained HTML document — `Assignment 1/index.html`. No build step and no dependencies.
 
 ### Running Locally
 
-To run the application locally without a web server, open the file directly:
+Open the file directly:
 ```bash
-open index.html
+open "Assignment 1/index.html"
 ```
 
-Or serve the directory over HTTP (recommended, so clipboard and history APIs behave as in production):
+Or serve over HTTP (recommended, so the clipboard and history APIs behave as in production):
 ```bash
 python3 -m http.server 8000
+# then visit http://localhost:8000/Assignment%201/
 ```
 
 ### Production Deployment
 
-The production application is automatically deployed to GitHub Pages via CI/CD on every commit to `main`:
-* **Live Deployed Application**: [https://humanizerco.web.app/](https://humanizerco.web.app/)
+The live site is hosted on **Firebase Hosting** (project `humanizerco`, configured in `firebase.json`):
 
-Deploying to alternative static host environments (e.g., Cloudflare Pages, NGINX) requires hosting only `index.html` at the web root. No compilation step is required.
+* **Live application**: [https://humanizerco.web.app/](https://humanizerco.web.app/)
+
+Because the app is a single self-contained document, it runs on any static host that serves the HTML at its web root (Firebase Hosting, Cloudflare Pages, NGINX, etc.) — no compilation step is required.
 
 
 ---

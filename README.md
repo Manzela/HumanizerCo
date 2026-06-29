@@ -1,10 +1,8 @@
 # HumanizerCo — Web Architecture & Technical Specification
 
-> **Live Application Website**: [https://manzela.github.io/HumanizerCo/](https://manzela.github.io/HumanizerCo/)
+> **Live Application Website**: [https://humanizerco.web.app/](https://humanizerco.web.app/)
 
 HumanizerCo is a lightweight, high-performance web application designed to rephrase and humanize machine-generated text. Operating entirely within the browser sandbox, the engine applies structural, syntactic, and lexical transformations to reduce predictability metrics commonly flagged by statistical AI detectors.
-
-![HumanizerCo — paste AI text, humanize it in one click, and watch the AI-detection estimate fall](docs/screenshots/desktop-result.png)
 
 ---
 
@@ -99,7 +97,7 @@ python3 -m http.server 8000
 ### Production Deployment
 
 The production application is automatically deployed to GitHub Pages via CI/CD on every commit to `main`:
-* **Live Deployed Application**: [https://manzela.github.io/HumanizerCo/](https://manzela.github.io/HumanizerCo/)
+* **Live Deployed Application**: [https://humanizerco.web.app/](https://humanizerco.web.app/)
 
 Deploying to alternative static host environments (e.g., Cloudflare Pages, NGINX) requires hosting only `index.html` at the web root. No compilation step is required.
 

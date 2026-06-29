@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Free AI Humanizer — Make Your AI Text Sound 100% Human | HumanizerCo</title>
+  <title>Free AI Humanizer — Make AI Text Read Like You Wrote It | HumanizerCo</title>
   <meta name="description" content="Free AI Humanizer: paste AI-written text and make it sound human in one click. Processed in your browser — your text is never uploaded.">
   <link rel="icon" href="data:,">
 
@@ -275,7 +275,7 @@
     </header>
 
     <main>
-      <h1>Free AI Humanizer — Make Your AI Text Sound 100% Human</h1>
+      <h1>Free AI Humanizer — Make AI Text Read Like You Wrote It</h1>
       <p class="sub">Paste your AI-written text, humanize it in one click, and watch the AI-detection estimate drop.
         Processed in your browser — your text is never uploaded.</p>
 
@@ -346,7 +346,7 @@
         </div>
         <div class="trust-item">
           <svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 14c3 0 3-4 6-4s3 4 6 4 3-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <div><strong>Reduces detection signals</strong><span>Targets the patterns checkers like GPTZero, Originality.ai &amp; Copyleaks look for.</span></div>
+          <div><strong>Removes common AI tells</strong><span>Rewrites the repetitive phrasing and uniform rhythm that AI-detection checkers look for.</span></div>
         </div>
         <div class="trust-item">
           <svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -369,7 +369,12 @@
     <div id="gateOverlay" class="overlay" hidden>
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
         <h2 id="gateTitle">Create your free account</h2>
-        <p class="modal-sub" id="gateDesc">Sign up free to run Strong mode and lift the 100-word limit.</p>
+        <p class="modal-sub" id="gateDesc">Your free account unlocks:</p>
+        <ul class="benefits">
+          <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Strong mode</strong> — our deepest rewrite pass</span></li>
+          <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>No 250-word limit</strong> — humanize full essays in one pass</span></li>
+          <li><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Free forever</strong> — no credit card, ever</span></li>
+        </ul>
         <form id="signupForm" novalidate>
           <label class="sr" for="emailInput">Email address</label>
           <input id="emailInput" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-describedby="emailError">
@@ -643,7 +648,7 @@
     var authStatus = document.getElementById("authStatus");
     var signOutBtn = document.getElementById("signOut");
     var HUMAN = 25;                                  // "human" threshold (Specification / 
-    var FREE_CAP = 100;                              // freeWordCap
+    var FREE_CAP = 250;                              // freeWordCap
     var HARD_CAP = 20000;                            // absolute input ceiling (perf guard)
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;     // validation (Step 5 data model)
     var STORE_KEY = "hco_signedin";
@@ -680,7 +685,7 @@
     function updateCaveat(wc) {
       if (wc === 0) { scoreCaveat.hidden = true; }
       else if (wc < 50) { scoreCaveat.hidden = false; scoreCaveat.textContent = "Too short to estimate reliably — paste at least ~50 words."; }
-      else if (wc < 250) { scoreCaveat.hidden = false; scoreCaveat.textContent = "Short text — estimates are less reliable below ~100 words."; }
+      else if (wc < 250) { scoreCaveat.hidden = false; scoreCaveat.textContent = "Short text — estimates are less reliable below ~250 words."; }
       else { scoreCaveat.hidden = true; }
     }
     /* live word/character counter + remaining free allowance */
@@ -905,7 +910,7 @@
       }
       // : WHILE signed-out AND hasBasicResult, Strong is gated, not executed.
       if (state.mode === "strong" && !state.signedIn && state.hasBasicResult) { openGate("strong"); return; }
-      // : signed-out over-cap -> run Basic on the first 100 words as a taste, gate AFTER.
+      // : signed-out over-cap -> run Basic on the first 250 words as a taste, gate AFTER.
       var wc = wordCount(text);
       var overCap = !state.signedIn && wc > FREE_CAP;
       var runText = overCap ? firstNWords(text, FREE_CAP) : text;

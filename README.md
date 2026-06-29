@@ -93,6 +93,54 @@ The work is split into three assignment folders, each holding its deliverables a
 
 ---
 
+## Deliverables
+
+### Assignment 1 — Landing page
+
+The conversion-focused landing page, built as a single self-contained `index.html`.
+
+![HumanizerCo landing page (desktop)](docs/screenshots/desktop.png)
+
+| Humanizer in action | Sign-up gate | Mobile |
+| :---: | :---: | :---: |
+| ![Humanizer engine returning a result](docs/screenshots/desktop-result.png) | ![Account sign-up gate](docs/screenshots/signup.png) | ![Landing page on mobile](docs/screenshots/mobile.png) |
+
+### Assignment 2 — A/B test variants
+
+Each variant changes exactly one thing against the control, so any lift can be attributed to that single change.
+
+**Test 1 — Headline (above the fold)**
+
+| Control | Variant 1 |
+| :---: | :---: |
+| ![Control headline](docs/screenshots/control-fold-desktop.png) | ![Variant 1 headline](docs/screenshots/variant1-fold-desktop.png) |
+
+**Test 2 — Gate offer / CTA copy**
+
+| Control | Variant 2 |
+| :---: | :---: |
+| ![Control gate](docs/screenshots/control-gate-desktop.png) | ![Variant 2 gate](docs/screenshots/variant2-gate-desktop.png) |
+
+**Test 3 — Sign-up auth order**
+
+| Control | Variant 3 |
+| :---: | :---: |
+| ![Control gate](docs/screenshots/control-gate-desktop.png) | ![Variant 3 gate](docs/screenshots/variant3-gate-desktop.png) |
+
+### Assignment 3 — Ad creatives
+
+Three conversion-focused creatives sized to drive traffic to the landing page, shown at their true aspect ratios.
+
+**320 × 50 — Banner**
+
+![320x50 banner ad](Assignment%203/ad_creatives/humanizerco-320x50-banner.png)
+
+| 250 × 250 — Square Banner | 1080 × 1920 — Full-Screen Mobile |
+| :---: | :---: |
+| ![250x250 square banner ad](Assignment%203/ad_creatives/humanizerco-250x250-square.png) | ![1080x1920 full-screen mobile ad](Assignment%203/ad_creatives/humanizerco-1080x1920-fullscreen.png) |
+
+---
+
 ## How I worked
 
 I work AI-assisted, and I built each assignment around a simple idea: decide everything before the model starts producing. For every task I first wrote and locked the full scope — the requirements, what counts as done, and the checks that prove it — and only then let the session run against that plan. Long AI sessions drift when you let them improvise; locking the scope upfront keeps the execution following the plan instead of the model's best guess halfway through.

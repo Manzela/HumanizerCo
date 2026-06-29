@@ -1,5 +1,7 @@
 # HumanizerCo — Web Architecture & Technical Specification
 
+> This repository is a home assignment submission. It contains three growth tasks — a landing page, a set of A/B tests, and ad creatives — each in its own folder with the deliverables, a short write-up, and the raw AI session transcript behind it. The sections below document HumanizerCo as if it were a real product, which is the lens I used to approach the work. See [How I worked](#how-i-worked) for the process and [Repository Structure](#repository-structure) for the layout.
+
 > **Live Application Website**: [https://humanizerco.web.app/](https://humanizerco.web.app/)
 
 HumanizerCo is a lightweight, high-performance web application designed to rephrase and humanize machine-generated text. Operating entirely within the browser sandbox, the engine applies structural, syntactic, and lexical transformations to reduce predictability metrics commonly flagged by statistical AI detectors.
@@ -81,13 +83,23 @@ HumanizerCo provides two operational modes tailored to user needs:
 ## Repository Structure
 
 ```text
-Assignment 1/   Landing page — the self-contained application (index.html) + reasoning write-up
-Assignment 2/   A/B test variants (variant1–3.html) + reasoning write-up
-Assignment 3/   Ad creatives (ad_creatives/*.png) + reasoning write-up
+Assignment 1/   index.html (the landing page) + Assignment-1-Deliverable-1.md (write-up)
+Assignment 2/   variant1.html, variant2.html, variant3.html (A/B tests) + Assignment-2-Deliverable-1.md
+Assignment 3/   ad_creatives/ (three PNG mockups) + Assignment-3-Deliverable-1.md
 docs/           Reference screenshots
 ```
 
-The runnable application is the single, self-contained document at `Assignment 1/index.html`. Hosting configuration (`firebase.json`, `.firebaserc`) and governance files (`CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `LICENSE`) live at the repository root.
+The work is split into three assignment folders, each holding its deliverables and a short write-up explaining the reasoning. Assignment 1 is the landing page itself — a single self-contained `index.html` that runs the full humanizer in the browser. Assignment 2 builds on that page with three A/B test variants, each changing one thing against the baseline so the result is measurable. Assignment 3 is the paid-acquisition layer: three ad creatives (a 320×50 banner, a 250×250 square, and a 1080×1920 full-screen mobile) sized to drive traffic to the landing page. Each folder also includes a `Claude Code/` subfolder with the raw AI session transcript for that assignment. Hosting configuration (`firebase.json`) and governance files (`CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `LICENSE`) live at the repository root.
+
+---
+
+## How I worked
+
+I work AI-assisted, and I built each assignment around a simple idea: decide everything before the model starts producing. For every task I first wrote and locked the full scope — the requirements, what counts as done, and the checks that prove it — and only then let the session run against that plan. Long AI sessions drift when you let them improvise; locking the scope upfront keeps the execution following the plan instead of the model's best guess halfway through.
+
+That is why the session transcripts read the way they do. The short "Proceed" replies you'll see from me are sign-offs on a phase that already passed its checks, not me skimming and waving things through. The thinking happens earlier, when the scope is written and pressure-tested; the build phase is mostly enforcement.
+
+I also treated the repository as if it were a real product rather than a test submission — hence the production README, the hosting setup, and the governance files. Internal build notes were cleaned out before publishing, the same way you'd prep any repo for release. The raw transcripts in each `Claude Code/` folder are the unedited record of how the work actually happened, kept exactly as they were so the reasoning is fully visible.
 
 ---
 

@@ -133,11 +133,15 @@ Three conversion-focused creatives sized to drive traffic to the landing page, s
 
 **320 × 50 — Banner**
 
-![320x50 banner ad](Assignment%203/ad_creatives/humanizerco-320x50-banner.png)
+![320x50 banner ad](docs/ad-creatives/humanizerco-320x50-banner.png)
 
-| 250 × 250 — Square Banner | 1080 × 1920 — Full-Screen Mobile |
-| :---: | :---: |
-| ![250x250 square banner ad](Assignment%203/ad_creatives/humanizerco-250x250-square.png) | ![1080x1920 full-screen mobile ad](Assignment%203/ad_creatives/humanizerco-1080x1920-fullscreen.png) |
+**250 × 250 — Square Banner**
+
+![250x250 square banner ad](docs/ad-creatives/humanizerco-250x250-square.png)
+
+**1080 × 1920 — Full-Screen Mobile**
+
+![1080x1920 full-screen mobile ad](docs/ad-creatives/humanizerco-1080x1920-fullscreen.png)
 
 ---
 
